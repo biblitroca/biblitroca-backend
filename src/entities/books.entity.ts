@@ -9,6 +9,9 @@ class Book {
   @Column({ length: 100 })
   name: string;
 
+  @Column({ length: 50 })
+  author: string;
+
   @Column({ length: 6 })
   type: string;
 
