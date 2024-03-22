@@ -1,22 +1,31 @@
 import { Request, Response } from "express";
-import { Book } from "../entities";
-import { create, read } from "../services/books.services";
+import { create, destroy, read } from "../services/books.services";
+import { BookCreate, BookRead, IBook } from "../interfaces/book.interfaces";
 
 export const postBook = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  /* const book:  = response.locals.validated;
-  const newBook:  = await create(book); */
+  const book: BookCreate = response.locals.validated;
+  const newBook: IBook = await create(book);
 
-  return response.status(201).json(/* newBook */);
+  return response.status(201).json(newBook);
 };
 
 export const getBooks = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  /* const book: Book[] = await read(); */
+  const books: BookRead = await read();
 
-  return response.status(200).json(/* book */);
+  return response.status(200).json(books);
+};
+
+export const deleteBook = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  await destroy(response.locals.book);
+  console.log(response.locals.book);
+  return response.status(204).json();
 };

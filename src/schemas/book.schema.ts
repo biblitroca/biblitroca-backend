@@ -7,3 +7,6 @@ export const bookSchema = z.object({
   type: z.string().max(6),
   price: z.number().positive(),
 });
+
+export const bookCreateSchema = bookSchema.omit({ id: true });
+export const bookReadSchema = bookSchema.array();
