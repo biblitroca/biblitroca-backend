@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.usersRouter = void 0;
+const express_1 = require("express");
+const validateBody_middleware_1 = require("../middlewares/validateBody.middleware");
+const user_schema_1 = require("../schemas/user.schema");
+const verifyToken_middleware_1 = require("../middlewares/verifyToken.middleware");
+const verifyEmail_middleware_1 = require("../middlewares/verifyEmail.middleware");
+const users_controller_1 = require("../controllers/users.controller");
+const verifyId_middleware_1 = require("../middlewares/verifyId.middleware");
+exports.usersRouter = (0, express_1.Router)();
+exports.usersRouter.post("", (0, validateBody_middleware_1.validateBody)(user_schema_1.userCreateSchema), verifyEmail_middleware_1.verifyEmail, users_controller_1.postUser);
+exports.usersRouter.get("", verifyToken_middleware_1.verifyToken, users_controller_1.getUsers);
+exports.usersRouter.patch("/:id", verifyId_middleware_1.verifyId, verifyToken_middleware_1.verifyToken, (0, validateBody_middleware_1.validateBody)(user_schema_1.userUpdateSchema), users_controller_1.patchUser);
+exports.usersRouter.delete("/:id", verifyId_middleware_1.verifyId, verifyToken_middleware_1.verifyToken, users_controller_1.deleteUser);
