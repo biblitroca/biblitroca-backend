@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:type", String)
 ], Book.prototype, "author", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 6 }),
+    (0, typeorm_1.Column)({ length: 7 }),
     __metadata("design:type", String)
 ], Book.prototype, "type", void 0);
 __decorate([

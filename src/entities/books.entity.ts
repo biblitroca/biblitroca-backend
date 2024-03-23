@@ -12,7 +12,7 @@ class Book {
   @Column({ length: 50 })
   author: string;
 
-  @Column({ length: 6 })
+  @Column({ length: 7 })
   type: string;
 
   @Column({ type: "integer" })
