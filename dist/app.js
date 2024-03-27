@@ -11,6 +11,8 @@ const books_routers_1 = require("./routers/books.routers");
 const handleErrors_middleware_1 = require("./middlewares/handleErrors.middleware");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
+const cors = require("cors");
+app.use(cors());
 app.use("/users", users_routers_1.usersRouter);
 app.use("/login", session_routers_1.sessionRouter);
 app.use("/books", books_routers_1.booksRouter);
