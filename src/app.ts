@@ -8,6 +8,9 @@ import { handleError } from "./middlewares/handleErrors.middleware";
 const app: Application = express();
 app.use(express.json());
 
+const cors = require("cors");
+app.use(cors());
+
 app.use("/users", usersRouter);
 
 app.use("/login", sessionRouter);
