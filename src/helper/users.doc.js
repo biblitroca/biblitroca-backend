@@ -61,6 +61,11 @@ const userRouteDoc = {
       summary: "Lista os usuários",
       description:
         "Faz a listagem de todos os usuários. Precisa de um bearer token",
+      security: [
+        {
+          bearerAuth: [],
+        },
+      ],
       responses: {
         200: {
           description: "OK",

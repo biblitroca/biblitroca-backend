@@ -6,9 +6,21 @@ const swaggerDocumentation = {
   openapi: "3.0.0",
   info: {
     title: "Biblitroca",
-    version: "0.0.1",
+    version: "1.0.0",
     description: "Essa API foi criada para o marketplace de livros Biblitroca",
   },
+  securityDefinitions: {
+    bearerAuth: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header",
+    },
+  },
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
   servers: [
     {
       url: "http://localhost:3000",
